@@ -22,18 +22,20 @@ const projetos = [
   { id: 6, imagem: img6, titulo: 'Naum 1:7', categoria: 'Homenagem' },
 ]
 
+const arrowClass = 'border-accent/40 text-accent hover:bg-accent hover:text-white hover:border-accent'
+
 export default function Portfolio() {
   return (
     <section
       id="portfolio"
       data-testid="portfolio"
-      className="py-24 px-6 bg-brand-deepest"
+      className="py-24 px-6 bg-brand-deepest overflow-hidden"
     >
       <div className="max-w-5xl mx-auto">
         <p className="text-sm uppercase tracking-widest text-accent mb-3 text-center">Portfólio</p>
         <h2 className="text-3xl font-light text-white mb-14 text-center">Projetos realizados</h2>
 
-        <Carousel opts={{ align: 'start', loop: true }} className="px-12">
+        <Carousel opts={{ align: 'start', loop: true }} className="md:px-12">
           <CarouselContent>
             {projetos.map((p) => (
               <CarouselItem key={p.id} className="basis-full sm:basis-1/2 md:basis-1/3">
@@ -56,8 +58,9 @@ export default function Portfolio() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="border-accent/40 text-accent hover:bg-accent hover:text-white hover:border-accent" />
-          <CarouselNext className="border-accent/40 text-accent hover:bg-accent hover:text-white hover:border-accent" />
+
+          <CarouselPrevious className={`hidden md:flex ${arrowClass}`} />
+          <CarouselNext className={`hidden md:flex ${arrowClass}`} />
         </Carousel>
       </div>
     </section>
